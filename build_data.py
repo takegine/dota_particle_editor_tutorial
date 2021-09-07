@@ -26,29 +26,29 @@ def main(input_args):
 
 	if "--help" in input_args or "-h" in input_args:
 		print("\nPossible Parameters:")
-		print("-h|--help               a list of all possible parameters")
-		print("-b|--build              retrieve all particles from the content folder")
-		print("-p|--path               set the path for the content folder")
-		print("--force_parse           force to parse built particles again")
-		print("-l_[max]|--limit_[max]  set a maximum of particles to process")
-		print("--dump                  writes all particle information in particle_dump.json")
-		print("--count                 print the count of all particles")
-		print("--operator              write a list of all operators in result.txt")
-		print("--operator_count        write a list of all operators with their total number of occurances in result.txt")
-		print("--operator_example      write a list of all operators with an random example in result.txt")
-		print("--operator_fields       write a list of all operators with all their fields and types in result_fields.txt")
-		print("--field_types           write a list of all fields types with count in result_types.txt")
-		print("--search_field_value    Searches for particles with tath field")
-		print("\nValve Resource Format support:")
-		print("--vrf_path              set the folder to search for 'Decompiler.exe'")
-		print("-g|--game_path          set the path for the game folder")
-		print("--vrf_build             include compiled particles in search and decompile them")
-		print("--vrf                   use decompiled particles (doesn't decompile them)")
+		print("-h|--help               所有可能参数的列表")
+		print("-b|--build              从内容文件夹中检索所有粒子")
+		print("-p|--path               为内容文件夹设置路径")
+		print("--force_parse           再次强制分析构建粒子")
+		print("-l_[max]|--limit_[max]  设置要处理的最大颗粒")
+		print("--dump                  所有粒子信息 写入 particle_dump.json ")
+		print("--count                 打印所有粒子的计数")
+		print("--operator              所有操作员的列表 写入 result.txt")
+		print("--operator_count        所有操作员的发生总数列表 写入 result.txt")
+		print("--operator_example      具有随机示例的所有操作员列表 写入 result.txt")
+		print("--operator_fields       具有所有字段和类型的所有操作员列表 写入 result_fields.txt")
+		print("--field_types           具有计数的所有字段类型的列表 写入 result_types.txt")
+		print("--search_field_value    搜索该字段的粒子")
+		print("\nValve Resource Format 工具的支持:")
+		print("--vrf_path              设置文件夹以搜索'Decompiler.exe")
+		print("-g|--game_path          为游戏文件夹设置路径")
+		print("--vrf_build             包括在搜索和分解它们时编译的粒子")
+		print("--vrf                   使用分解粒子（不分解它们）")
 		sys.exit()
 
 	if len(input_args) == 0:
-		print("\nNo arguments given. Abort...")
-		print("Refer to help (-h|--help) for more information about arguments")
+		print("\n你的参数呢. 难道说...")
+		print("请参阅帮助 (-h|--help) 了解有关参数的更多信息")
 		sys.exit()
 
 	if "--path" in input_args or "-p" in input_args:
@@ -56,7 +56,7 @@ def main(input_args):
 		while cPath == "":
 			cPath = input("Content Path: ")
 		if not os.path.exists(cPath):
-			print("This path does not exist. Exit...")
+			print("此路径不存在。退出...")
 			sys.exit()
 		else:
 			set_content_path(cPath)
@@ -66,7 +66,7 @@ def main(input_args):
 		while gPath == "":
 			gPath = input("Game Path: ")
 		if not os.path.exists(gPath):
-			print("This path does not exist. Exit...")
+			print("此路径不存在。退出...")
 			sys.exit()
 		else:
 			set_game_path(gPath)
@@ -78,15 +78,15 @@ def main(input_args):
 		buildVrf = True
 		vrfPath = get_vrf_path()
 		if not vrfPath:
-			if get_user_input("No path for vrf decompiler given.", useYN=True):
-				if get_user_input("Use current directory?", useYN=True, preset=False):
+			if get_user_input("没有给 vrf 分解器的路径。", useYN=True):
+				if get_user_input("使用当前目录?", useYN=True, preset=False):
 					set_vrf_path(os.getcwd())
 				else:
-					newPath = get_user_input("Enter path to search: ")
+					newPath = get_user_input("输入搜索路径：")
 					set_vrf_path(newPath)
 		vrfPath = get_vrf_path()
 		if not vrfPath:
-			print("No Decompiler.exe found. Exit...")
+			print("没有找到解析器 Decompiler.exe .退出...")
 			sys.exit()
 
 	if not useVrf:
@@ -96,10 +96,10 @@ def main(input_args):
 	if "--build" in input_args or "-b" in input_args:
 		build_main_file(useVrf, buildVrf)
 	if not os.path.isfile(path):
-		print("WARNING! complete_particle_list.txt does not exist!")
+		print("WARNING! complete_particle_list.txt 不存在!")
 		answer = None
 		while answer is None:
-			userInput = input("Do you want to build it now? (y|n) ")
+			userInput = input("你想现在 build 它吗? (y|n) ")
 			if userInput.lower() == "y" or userInput.lower() == "yes":
 				answer = True
 			elif userInput.lower() == "n" or userInput.lower() == "no":
@@ -107,7 +107,7 @@ def main(input_args):
 		if answer:
 			build_main_file(useVrf, buildVrf)
 		else:
-			print("Exit...")
+			print("退出...")
 			sys.exit()
 
 	limit = -1
@@ -306,7 +306,7 @@ def get_user_input(text, useYN = False, preset = True):
 		answer = None
 		while answer is None:
 			if preset:
-				userInput = input("Do you want to set it now? (y|n) ")
+				userInput = input("你想现在设置它吗? (y|n) ")
 			else:
 				userInput = input(text + " (y|n) ")
 			if userInput.lower() == "y" or userInput.lower() == "yes":
@@ -360,7 +360,7 @@ def get_game_path():
 def set_vrf_path(path):
 	decPath = os.path.join(path, "Decompiler.exe")
 	if not os.path.exists(decPath):
-		print("No Decompiler.exe found. Exit...")
+		print("没有找到解析器 Decompiler.exe .退出...")
 		sys.exit()
 
 	filePath = os.path.join(os.getcwd(), "settings.json")
@@ -384,12 +384,12 @@ def get_vrf_path():
 def compile_files(decList):
 	path = get_game_path()
 	if not path:
-		if get_user_input("No game path given.", useYN=True):
-			newPath = get_user_input("Game Path:")
+		if get_user_input("没有给出游戏路径。", useYN=True):
+			newPath = get_user_input("游戏路径:")
 			if os.path.isdir(newPath):
 				set_vrf_path(newPath)
 			else:
-				print("This path does not exit. Exit...")
+				print("此路径不存在. 退出...")
 				sys.exit()
 
 	nameList = []
@@ -431,7 +431,7 @@ def compile_files(decList):
 
 	maxCount = len(newResults)
 	for i,res in enumerate(newResults):
-		print_status("Decompiling found .vpcf_c files...", maxCount, i+1)
+		print_status("正在分解发现 .vpcf_c 文件...", maxCount, i+1)
 		relativePath = res.replace(path, "")[1:][:-2]
 		command = vrfPath  + " -i \"%s\" -o \"%s\" --vpk_decompile" % (res, os.path.join(tempPath, relativePath))
 		subprocess.call(command, shell=True, stdout=FNULL)
@@ -440,10 +440,10 @@ def build_main_file(useVrf, buildVrf):
 	path = get_content_path()
 
 	if not path:
-		print("WARNING! you haven't set a path to your content folder yet!")
+		print("WARNING! 您尚未设置通往内容文件夹的路径!")
 		answer = None
 		while answer is None:
-			userInput = input("Do you want to set it now? (y|n) ")
+			userInput = input("你想现在设置它吗? (y|n) ")
 			if userInput.lower() == "y" or userInput.lower() == "yes":
 				answer = True
 			elif userInput.lower() == "n" or userInput.lower() == "no":
@@ -453,14 +453,14 @@ def build_main_file(useVrf, buildVrf):
 			while cPath == "":
 				cPath = input("Content Path: ")
 			if not os.path.exists(cPath):
-				print("WARNING! This path does not exist!")
+				print("WARNING! 此路径不存在!")
 				sys.exit()
 			else:
 				set_content_path(cPath)
 
 	path = get_content_path()
 
-	print("Building main file...")
+	print("构建 main 文件...")
 	# path = "C:\\SteamLibrary\\steamapps\\common\\dota 2 beta\\content\\dota\\particles"
 	results = [y for x in os.walk(path) for y in glob(os.path.join(x[0], '*.vpcf'))]
 
@@ -474,7 +474,7 @@ def build_main_file(useVrf, buildVrf):
 	index = 1
 	completeText = ""
 	for result in results:
-		print_status("Retrieving data...", maxCount, index)
+		print_status("检索数据...", maxCount, index)
 		index += 1
 
 		namePattern = r'particles\\(.*?(\w+)\.vpcf)'
@@ -487,7 +487,7 @@ def build_main_file(useVrf, buildVrf):
 			text = file.read()
 			completeText += name + text + "\n"
 
-	print("Writing to complete_particle_list.txt...")
+	print("写入 complete_particle_list.txt...")
 	with open(os.path.join(os.getcwd(), "complete_particle_list.txt"), "w") as file:
 		file.write(completeText)
 
@@ -499,7 +499,7 @@ def parse_main_file(limit=-1,forceParse=False):
 		newParticleDict = dict(zip(saveFiles["keys"][:limit], saveFiles["vals"][:limit]))
 		return newParticleDict
 
-	print("Reading main file...")
+	print("读取 main 文件...")
 	particleDict = {}
 	with open(os.path.join(os.getcwd(), "complete_particle_list.txt")) as file:
 		pattern = r'(!(\w+)\s*?\((\".*?\")\)).*?(?P<tabs>^ *){\s(.*?^(?P=tabs))}'
@@ -512,7 +512,7 @@ def parse_main_file(limit=-1,forceParse=False):
 			maxCount += 1
 			matches.append(match)
 		for match in matches:
-			print_status("Reading particle effects...", maxCount, index + 1)
+			print_status("正在阅读粒子特效...", maxCount, index + 1)
 			name = match.group(2)
 			particleDict[name] = {}
 			particleDict[name]["path"] = match.group(3)
@@ -528,13 +528,13 @@ def parse_main_file(limit=-1,forceParse=False):
 	maxCount = len(particleDict)
 	index = 1
 	for pName, pAttr in particleDict.items():
-		print_status("Parsing particle effects...", maxCount, index)
+		print_status("正在解析粒子特效...", maxCount, index)
 		index += 1
 		text = pAttr["text"]
 		newParticleDict[pName]["content"] = add_content(text, pName)
 		del newParticleDict[pName]["text"]
 
-	print("Saving parsed particles...")
+	print("正在保存解析的颗粒...")
 	np.savez(parsedPath, keys=list(newParticleDict.keys()), vals=list(newParticleDict.values()))
 
 	return newParticleDict
