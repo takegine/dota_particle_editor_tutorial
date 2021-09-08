@@ -1,23 +1,20 @@
 # Dota2 Particle Editor Tutorial
 
-The Particle Editor is a powerful tool that allows to create all kinds of particle effects, from ambient effects to projectiles up to HUD animations. So its definitely worth for everybody to learn how to create their own.
-Here you will learn the basics to understand the tool, as well as advanced techniques to master particle creation!
+粒子编辑器是一个强大的工具，允许创建各种粒子效果，从环境效果到抛射到HUD动画。所以对于每个人来说，学习如何创造自己的游戏绝对是值得的。
 
 ## How to get started?
-This project should help you find your way into the world of particle effects. Several documents are available for this purpose:
-- The [Particle Editor Guide](./Particle%20Editor%20Guide.md), which contains detailed information about all possible areas of the Particle Editor and can thus be used both as an introduction and as a reference manual.
-- The [Tutorials Page](./Tutorials.md), a collection of step-by-step tutorials for complete beginners as well as some more in-depth and complex problems.
-- The [Function Library](./Function%20Library.md), a collection of all knows functions with their usage and other useful information.
-
-If you're completely new to this topic, it would be recommended to start reading the Particle Editor Guides topics `The Tool` and `Functions`. After that follow some basic tutorials from the Tutorials Page
+这个项目将帮助你找到进入粒子效果世界的方法。为此目的可提供以下几种文件:
+-[粒子编辑器指南](./Particle%20Editor%20Guide.md)，其中包含了关于粒子编辑器所有可能区域的详细信息，因此可以用作介绍和参考手册。
+-[教程页面](./Tutorials.md)，一个循序渐进的教程的集合，为完全的初学者以及一些更深入和复杂的问题。
+-[函数图书馆](./Function%20Library.md)，所有已知函数及其用法和其他有用信息的集合。
+如果你对这个主题完全陌生，建议你开始阅读粒子编辑器指南主题“工具”和“功能”。在那之后，跟随教程页面的一些基本教程
 
 ## Particle Mining
 
-Started as a side project, it is now an integral part of this repo. The particle mining tool finds, extracts and parses  particles and outputs all kinds of information and meta data about these. The [Function Library](./Function%20Library.md) was built with this tool.
-If you want to use it yourself, all you need is python installed. Run `build_data.py` in your console to start. Open the help to get an explenation of all the possible parameters and options.
+一开始只是一个副业项目，现在已经成为这个回购计划的一个组成部分。粒子挖掘工具对粒子进行查找、提取和解析，并输出与这些粒子相关的各种信息和元数据。[Function Library](./Function%20Library.md)就是用这个工具构建的。
+如果你想自己使用它，只需要安装python即可。在控制台中运行' build_data.py '启动。打开帮助获取所有可能参数和选项的解释。
 
 ## Important note
-This is a work that is constantly being expanded with new content. So if important information is missing, you are welcome to contribute!
-
-Also big thanks to **Shush**, for his ideas and proofreading.
+这是一部不断被新内容扩展的作品。因此，如果重要的信息缺失，欢迎您的贡献!
+也非常感谢**Shush**，感谢他的想法和校对。
 
